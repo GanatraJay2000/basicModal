@@ -1,6 +1,8 @@
 # basicModal
 A very simple way to create modals with very less code to be written
 
+### Please Visit Website for demo <a href="https://ganatrajay2000.github.io/basicModal/">Here</a>
+
 ### Features
 
 - Responsive modal
@@ -44,6 +46,7 @@ FOR IMAGE MODAL
 `<a href="#" class="open-image">
     <img class="image" src="https://images.pexels.com/photos/2661176/pexels-photo-2661176.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="nice background">
 </a>`
+4. No extra code for image modal
 
 ### Things comming in future
 
