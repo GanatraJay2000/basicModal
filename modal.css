@@ -1,4 +1,9 @@
     .custom-modal.modal{
+      --modal-background: #00000066;
+      --width: 60%;
+      --max-height: 80%;
+      --popup-top: 10%;
+
        --popup-background-color: white;
       --popup-background: var(--plain-bg);
       --popup-border-width: 6.5px;
@@ -12,6 +17,10 @@
       --close-color: #888;
     }
     .custom-modal.gallery{
+     --modal-background: #00000066;
+      --width: 60%;
+      --max-height: 98%;
+      --popup-top: 10%;
        --popup-background-color: transparent;
       --popup-background: var(--plain-bg);
       --popup-border-width: 0px;
