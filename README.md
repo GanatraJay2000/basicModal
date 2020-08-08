@@ -26,16 +26,15 @@ FOR HTML CONTENT MODAL
 
 4. Add the modal
 
-`<div class="custom-modal modal" id="modal1">
-    <div class="popup">
+`<div class="custom-modal modal" id="modal1">`
+    `<div class="popup">
         <p>
             Some text in the 1st Modal..
         </p>
         <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dolores sed fugit assumenda. Sint ipsam neque officia laborum recusandae voluptate.
-        </p>
-        <button type="button" class="open-modal" data-modal-id="hahaha">Open 2nd Modal</button>
-    </div>
+        </p>        
+    </div>`
 </div>`
 
 FOR IMAGE MODAL
@@ -50,6 +49,7 @@ FOR IMAGE MODAL
 
 - Video support
 - iframe support
+- Stackable modals
 
 
 # Styling
