@@ -33,7 +33,7 @@ FOR HTML CONTENT MODAL
         `</p>`<br>
         `<p>`
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dolores sed fugit assumenda. Sint ipsam neque officia laborum recusandae voluptate.
-        `</p>`<br>        
+        `</p>`      
     `</div>`<br>
 `</div>`
 
