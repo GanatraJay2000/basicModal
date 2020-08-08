@@ -21,7 +21,7 @@ FOR HTML CONTENT MODAL
 <button type="button" class="open-modal" data-modal-id="modal1">Open Modal</button>
 
 4. Add the modal
-<div class="custom-modal modal" id="modal1">
+`<div class="custom-modal modal" id="modal1">
     <div class="popup">
         <p>
             Some text in the 1st Modal..
@@ -31,14 +31,15 @@ FOR HTML CONTENT MODAL
         </p>
         <button type="button" class="open-modal" data-modal-id="hahaha">Open 2nd Modal</button>
     </div>
-</div>
+</div>`
 
 FOR IMAGE MODAL
 
 3. Add link for opening
-<a href="#" class="open-image">
+
+`<a href="#" class="open-image">
     <img class="image" src="https://images.pexels.com/photos/2661176/pexels-photo-2661176.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="nice background">
-</a>
+</a>`
 
 ### Things comming in future
 
