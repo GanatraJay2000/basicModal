@@ -1,7 +1,7 @@
 # basicModal
 A very simple way to create modals with very less code to be written
 
-### Please Visit Website for demo <a href="https://ganatrajay2000.github.io/basicModal/">Here</a>
+### Visit vebsite for demo <a href="https://ganatrajay2000.github.io/basicModal/">Here</a>
 
 ### Features
 
