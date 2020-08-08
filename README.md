@@ -26,7 +26,7 @@ FOR HTML CONTENT MODAL
 
 4. Add the modal
 
-`<div class="custom-modal modal" id="modal1">`
+`<div class="custom-modal modal" id="modal1">`<br>
     `<div class="popup">
         <p>
             Some text in the 1st Modal..
@@ -34,8 +34,8 @@ FOR HTML CONTENT MODAL
         <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dolores sed fugit assumenda. Sint ipsam neque officia laborum recusandae voluptate.
         </p>        
-    </div>`
-</div>`
+    </div>`<br>
+`</div>`
 
 FOR IMAGE MODAL
 
