@@ -28,13 +28,13 @@ FOR HTML CONTENT MODAL
 
 `<div class="custom-modal modal" id="modal1">`<br>
     `<div class="popup">
-        <p>
+        `<p>`
             Some text in the 1st Modal..
-        </p>
-        <p>
+        `</p>`
+        `<p>`
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dolores sed fugit assumenda. Sint ipsam neque officia laborum recusandae voluptate.
-        </p>        
-    </div>`<br>
+        `</p>`        
+    `</div>`<br>
 `</div>`
 
 FOR IMAGE MODAL
