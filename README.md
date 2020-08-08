@@ -9,18 +9,23 @@ A very simple way to create modals with very less code to be written
 # How to use 
 
 1. Link css files
-<link rel="stylesheet" href="scrollbar.css" />
-<link rel="stylesheet" href="modal.css">
+
+`<link rel="stylesheet" href="scrollbar.css" />`
+`<link rel="stylesheet" href="modal.css">`
 
 2. Link js file
-<script src="modal.js"></script>
+
+`<script src="modal.js"></script>`
+
 
 FOR HTML CONTENT MODAL
 
 3. Add link/button for opening
-<button type="button" class="open-modal" data-modal-id="modal1">Open Modal</button>
+
+`<button type="button" class="open-modal" data-modal-id="modal1">Open Modal</button>`
 
 4. Add the modal
+
 `<div class="custom-modal modal" id="modal1">
     <div class="popup">
         <p>
