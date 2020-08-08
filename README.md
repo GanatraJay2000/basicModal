@@ -10,7 +10,7 @@ A very simple way to create modals with very less code to be written
 
 1. Link css files
 
-`<link rel="stylesheet" href="scrollbar.css" />`
+`<link rel="stylesheet" href="scrollbar.css" />`<br>
 `<link rel="stylesheet" href="modal.css">`
 
 2. Link js file
