@@ -7,6 +7,8 @@ A very simple way to create modals with very less code to be written
 
 - Responsive modal
 - Works with HTML Content(for popups, alerts, and much more any where you want ) , Images ( for gallery )
+- Customization Possible
+- Scrollbar can also be customized
 
 # How to use 
 
