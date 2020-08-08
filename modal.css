@@ -1,0 +1,165 @@
+    .custom-modal.modal{
+       --popup-background-color: white;
+      --popup-background: var(--plain-bg);
+      --popup-border-width: 6.5px;
+      --popup-border-radius: 5px;
+      --popup-padding: 20px;
+      --popup-overflow: hidden scroll;
+      --popup-shadow: 0px 0px 10px #00000066;
+      --popup-top: 10%;
+      --handlecolor: #fa6d8b;
+      --handlecolorhover: #fc4c72;
+      --close-color: #888;
+    }
+    .custom-modal.gallery{
+       --popup-background-color: transparent;
+      --popup-background: var(--plain-bg);
+      --popup-border-width: 0px;
+      --popup-border-radius: 0px;
+      --popup-padding: 0px;
+      --popup-overflow: hidden;
+      --popup-shadow: 0px 0px 10px #00000066;
+      --popup-top: 50%;
+      --close-color: #fff;
+    }
+    
+    
+    .custom-modal {
+      --shadow-bg:  linear-gradient(var(--popup-background-color) 30%,
+          rgba(255, 255, 255, 0)),
+        linear-gradient(rgba(255, 255, 255, 0), var(--popup-background-color) 70%) 0 100%,
+        radial-gradient(farthest-side at 50% 5%,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0)),
+        radial-gradient(farthest-side at 50% 95%,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0)) 0 100%;
+      --plain-bg: var(--popup-background-color);
+    }
+    
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body.active {
+      overflow-y: hidden;
+    }
+    
+    .custom-modal {
+      display: block;
+      position: fixed;      
+      z-index: 1;      
+      padding-top: 5%;
+      transition: all ease 0.5s;
+      left: 0;
+      top: 0;
+      width: 100%;      
+      height: 100%;      
+      overflow: hidden;      
+      background-color: #ffffff00;
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+      cursor:pointer;
+    }
+
+    .custom-modal.active {
+      opacity: 1;
+      background-color: rgb(0, 0, 0);      
+      background-color: var(--modal-background, #00000066);      
+      pointer-events: all;
+      user-select: auto !important;
+    }
+    
+    .custom-modal .popup {
+      position: fixed;
+      z-index: 2;
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.5s;      
+      margin: 0;
+      padding: var(--popup-padding, 20px);
+      
+      max-height: var(--max-height, 80%);
+      overflow: var(--popup-overflow, hidden scroll);             
+      border:var(--popup-border-width) white solid;
+      border-right:0;
+      border-left:0;
+      border-radius:var(--popup-border-radius, 5px);
+      box-shadow:var(--popup-shadow, 0px 0px 10px #00000066);
+      box-sizing: border-box;
+      background:var(--popup-background);      
+      background-repeat: no-repeat;
+      background-color: var(--popup-background-color);
+      background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+      background-attachment: local, local, scroll, scroll;
+    }
+    .custom-modal.modal .popup {
+      width: var(--width, 80%);
+    }
+    .custom-modal.gallery .popup {
+      max-width: var(--width, 80%);
+    }
+
+
+    .popup.has-scrollbar::-webkit-scrollbar {
+      width: var(--popup-border-width);
+    }
+
+    .custom-modal .popup.active {
+      top: var(--popup-top ,10%);
+      visibility: visible;
+      opacity: 1;
+      transition: 0.5s;
+    }
+    .close {
+      position: absolute;
+      top:0px;
+      right:5px;
+      color: var(--close-color, #aaaaaa);      
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .custom-modal.gallery .popup{      
+      transform: translate(-50%, -50%);
+    }
+    .modal-img{      
+      /* object-fit:cover; */
+      max-width:100%;
+      max-height:100%;      
+    }
+    .modal-video{      
+      width:100%;      
+      height:100%;
+    }
+
+    @media screen and (max-width: 768px) {
+      .modal .popup {
+        --popup-top:1%;
+        --width:96%;
+        --max-height:98%;        
+        --popup-padding:10px;
+        padding: 5px;
+        text-align: justify;
+        text-align-last:center;
+      }
+      .gallery .popup {
+        --popup-top:50%;
+        --width:98%;
+        --max-height:98%;        
+        --popup-padding:0px;  
+        --popup-border-radius: 0px;      
+        text-align: justify;
+        text-align-last:center;
+      }
+    }

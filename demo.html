@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="scrollbar.css" />
+  <link rel="stylesheet" href="modal.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+
+    .custom-modal.modal {
+      --modal-background: #00000066;
+      --width: 98%;
+      --max-height: 98%;
+      --popup-top: 1%;
+    }
+
+    .custom-modal.gallery {
+      --modal-background: #00000066;
+      --width: 40%;
+      --max-height: 98%;
+      --popup-shadow: 0px 0px 0px #00000066;
+    }
+
+    .eye {
+      --width: 400px !important;
+      --max-height: 400px !important;
+      /* --popup-top: 10%; */
+    }
+
+    .image {
+      object-fit: cover;
+      height: 100px;
+      width: 100px;
+    }
+
+    .video {
+      object-fit: cover;
+      width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button type="button" class="open-modal" data-modal-id="hahaha">Open Modal</button>
+  <button type="button" class="open-modal" data-modal-id="hehehe">Open 2nd Modal</button>
+  <hr>
+  <a href="#" class="open-image">
+    <img class="image"
+      src="https://images.pexels.com/photos/2661176/pexels-photo-2661176.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+      alt="nice background">
+  </a>
+  <a href="#" class="open-image">
+    <video class="video" src="./Assets/video.mp4" controls></video>
+  </a>
+
+  <a href="#" class="open-image eye">
+    <img class="image"
+      src="https://images.pexels.com/photos/3732527/pexels-photo-3732527.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      alt="tree is good">
+  </a>
+  <a href="#" class="open-image">
+    <img class="image"
+      src="https://images.pexels.com/photos/4321311/pexels-photo-4321311.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      alt="computer is good">
+  </a>
+  <a href="#" class="open-image">
+    <img class="image"
+      src="https://images.pexels.com/photos/4086307/pexels-photo-4086307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      alt="computer is good">
+  </a>
+
+
+
+  <div class="custom-modal modal" id="hahaha">
+    <div class="popup">
+      <p>Some text in the Modal..</p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dolores
+        sed fugit assumenda. Sint ipsam neque officia laborum recusandae
+        voluptate.
+        <a href="#" class="open-image">
+          <img class="image"
+            src="https://images.pexels.com/photos/4086307/pexels-photo-4086307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="computer is good">
+        </a>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum magnam facilis, at beatae porro iusto expedita
+        assumenda corporis accusamus veritatis reprehenderit sequi natus voluptates quae eius eos iure atque sed
+        consectetur ipsa. Recusandae impedit nam at tempore autem quae odio minus maxime animi earum delectus illum,
+        fuga atque dicta magnam doloremque sunt culpa, quaerat accusamus numquam ipsam tempora. Facere, perspiciatis
+        suscipit cum doloremque officia, odit minima harum rem amet eligendi id delectus incidunt eos nihil a minus.
+        Consectetur officia non at quod explicabo dolorum, nostrum cum maxime eligendi fuga autem delectus blanditiis,
+        quasi aliquid. Minima culpa, nesciunt vel nemo inventore harum a perspiciatis animi commodi adipisci sapiente
+        voluptate cum ducimus blanditiis, atque dolorem possimus? Esse perspiciatis ad excepturi sed quam, dignissimos
+        pariatur veniam eos rerum alias delectus eveniet id nemo cumque porro, voluptatem sunt hic eligendi corporis
+        facilis dolore? Veniam nemo quod officia illo eligendi debitis hic omnis rem incidunt autem qui ullam iste
+        inventore aliquam odit fugit eaque, dolorum, eum tempore earum esse laboriosam consectetur. Corporis, mollitia
+        id, distinctio, ad aperiam quia enim nam architecto blanditiis ex quasi corrupti doloribus labore hic iste
+        voluptas? Corporis, cum animi iste tenetur voluptatum quos? Ab excepturi repudiandae ipsa deleniti, possimus
+        facilis minus iusto aliquam doloribus sed at tempore nesciunt neque saepe optio. Ex magnam, modi accusantium
+        excepturi ipsam enim voluptate cupiditate, numquam voluptates corrupti quia ea doloribus eius sit architecto
+        natus reiciendis tenetur odio unde. Minima in maiores dolorem labore, deleniti aperiam quod, aspernatur earum
+        ducimus dicta sint temporibus assumenda, placeat est saepe error culpa quae modi dignissimos veniam fugiat
+        voluptatibus molestias quia vero. Laboriosam earum officia at tempora impedit tempore dolor obcaecati, veniam
+        expedita eius sit, adipisci quidem distinctio, nostrum consectetur temporibus possimus error odio facilis
+        dignissimos commodi? Laborum voluptatum quod ex dolorum temporibus, accusamus, quasi voluptate aliquid
+        perspiciatis explicabo sint magnam, quisquam est ad minus dolorem atque odio necessitatibus fuga! Rerum, labore
+        quam aliquam ab voluptatem corporis at consectetur. Minima obcaecati eveniet veniam beatae molestias voluptatum
+        quidem, numquam quasi asperiores quia impedit consectetur, rem quisquam perferendis alias, cumque odio?
+        Blanditiis quis minima facilis consequuntur nemo. Sunt omnis neque voluptatibus quam quod ea aliquam debitis
+        consequuntur repudiandae? Error, ipsa. Eaque consectetur doloremque, tempora, in distinctio, aliquam aut
+        recusandae consequuntur quae libero mollitia vel blanditiis praesentium. Molestias numquam nostrum asperiores
+        velit! Tenetur similique voluptatum suscipit repellendus necessitatibus aperiam earum! Natus quod, inventore in
+        incidunt obcaecati, velit tenetur dolorum quibusdam quo, veniam ducimus quasi neque distinctio temporibus?
+        Consequuntur non, dolores rerum consectetur dolorum molestiae enim accusamus, suscipit explicabo nulla fuga quo!
+        Voluptates delectus voluptas sint incidunt amet minus repudiandae iusto molestias sequi quas ab ut recusandae
+        illum quaerat voluptatum, quae nam perferendis eaque id cum, ad odio? Aperiam commodi molestiae eius provident.
+        Dolores molestiae quod, excepturi incidunt fuga in illo voluptates similique aut placeat dolor, facere minus
+        laborum culpa. Inventore saepe architecto iusto asperiores quasi cupiditate tempora, tenetur incidunt, in minima
+        dolores libero dolore fugiat laboriosam eos praesentium excepturi adipisci quibusdam harum facere consectetur
+        accusamus voluptate! Consequuntur esse labore similique fugiat, expedita eveniet?
+      </p>
+    </div>
+  </div>
+  <div class="custom-modal modal" id="hehehe">
+    <div class="popup">
+      <p>Some text in the 2nd Modal..</p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dolores
+        sed fugit assumenda. Sint ipsam neque officia laborum recusandae
+        voluptate.
+      </p>
+      <button type="button" class="open-modal" data-modal-id="hahaha">Open 2nd Modal</button>
+
+    </div>
+  </div>
+  <script src="modal.js"></script>
+</body>
+
+</html>
