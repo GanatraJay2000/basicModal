@@ -235,6 +235,14 @@
         font-size: 40px;
       }
 
+      .image {
+        width: 100% !important;
+        height: auto;
+        transition: 0.5s;
+      }
+
+
+
       .content .from-where {
         margin-left: 5px;
       }
@@ -409,11 +417,31 @@
 
       .content ol {
         margin: 0;
-        padding-left: 20px;
+        padding-left: 0px;
+        list-style: none;
+      }
+
+      .content ul {
+        list-style: none;
+      }
+
+      .banner .link_to_examples {
+        min-height: 40px;
+        height: auto;
+        right: 0%;
+      }
+
+
+      .open-modal {
+        margin: 10px 0 0;
+        transition: 0.5s;
+        display: inline-block;
       }
 
       footer {
-        padding: 0 10px;
+        padding: 10px;
+        display: block;
+        text-align: center;
       }
     }
   </style>
@@ -526,7 +554,7 @@
         <div class="card">
           <h2>Text Modal</h2>
           <p>Modal containing HTML content</p><br>
-          <div>
+          <div class="text-left">
             .custom-modal.modal{<br>
             --modal-background: #00000066;<br>
             --width: 60%;<br>
@@ -551,7 +579,7 @@
         <div class="card">
           <h2>Image Modal</h2>
           <p>Modal for Images (useful for galleries)</p><br>
-          <div>
+          <div class="text-left">
             .custom-modal.gallery{<br>
             --modal-background: #00000066;<br>
             --width: 60%;<br>
@@ -635,7 +663,7 @@
 
       <div class="flex-row ">
         <div class="details text-left">
-          <div>
+          <div class="text-left">
             #CSS<br>
             .custom-modal.custom-style-2{<br>
             --modal-background: #000000dd;<br>
@@ -681,7 +709,7 @@
 
       <div class="flex-row">
         <div class="details text-left">
-          <div>
+          <div class="text-left">
             #CSS<br>
             .custom-modal.custom-style-3{<br>
             --modal-background: #000000dd;<br>
