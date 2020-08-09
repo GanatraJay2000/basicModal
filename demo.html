@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <link rel="stylesheet" href="scrollbar.css" />
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        body * {
+            font-family: "Raleway", sans-serif;
+        }
+
+        .container {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            transform: translate(0, -50%);
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .open-modal {
+            padding: 7px 30px;
+            background: #fff;
+            border: 1px solid;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <button class="open-modal" data-modal-id="jay">Jay</button>
+        </div>
+    </div>
+    <div class="custom-modal modal" id="jay">
+        <div class="popup">
+            <p>Lorem Ipsum</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit a optio reiciendis, nesciunt ut quod,
+                dignissimos qui omnis rem pariatur architecto. Officia, cumque? Culpa odit ut alias expedita, optio
+                beatae.</p>
+        </div>
+    </div>
+    <script src="modal.js"></script>
+</body>
+
+</html>

@@ -4,6 +4,7 @@ var images = document.querySelectorAll(".open-image");
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
+        event.preventDefault();
         var modal_id = "#".concat(button.dataset.modalId);
         var modal = document.querySelector(modal_id);
         var popup = modal.querySelector(".popup");

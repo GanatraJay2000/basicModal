@@ -3,10 +3,10 @@
       --width: 60%;
       --max-height: 80%;
       --popup-top: 10%;
-
-       --popup-background-color: white;
+      --popup-background-color: white;
       --popup-background: var(--plain-bg);
       --popup-border-width: 6.5px;
+      --popup-border-color: white;
       --popup-border-radius: 5px;
       --popup-padding: 20px;
       --popup-overflow: hidden scroll;
@@ -15,21 +15,25 @@
       --handlecolor: #fa6d8b;
       --handlecolorhover: #fc4c72;
       --close-color: #888;
+      --close-hover-color: #000;
     }
     .custom-modal.gallery{
      --modal-background: #00000066;
       --width: 60%;
       --max-height: 98%;
       --popup-top: 10%;
-       --popup-background-color: transparent;
+      --popup-background-color: transparent;
       --popup-background: var(--plain-bg);
       --popup-border-width: 0px;
+      --popup-border-color: white;
       --popup-border-radius: 0px;
       --popup-padding: 0px;
       --popup-overflow: hidden;
-      --popup-shadow: 0px 0px 10px #00000066;
+      --popup-shadow: 0px 0px 0px #00000066;
+      --popup-img-shadow: 0px 0px 0px #00000066;
       --popup-top: 50%;
       --close-color: #fff;
+      --close-hover-color: #000;
     }
     
     
@@ -91,16 +95,14 @@
       transition: 0.5s;      
       margin: 0;
       padding: var(--popup-padding, 20px);
-      
       max-height: var(--max-height, 80%);
       overflow: var(--popup-overflow, hidden scroll);             
-      border:var(--popup-border-width) white solid;
-      border-right:0;
-      border-left:0;
+      border:var(--popup-border-width, 5px) var(--popup-border-color, white) solid;
+      border-right:0;      
       border-radius:var(--popup-border-radius, 5px);
       box-shadow:var(--popup-shadow, 0px 0px 10px #00000066);
       box-sizing: border-box;
-      background:var(--popup-background);      
+      background:var(--popup-background, var(--plain-bg));      
       background-repeat: no-repeat;
       background-color: var(--popup-background-color);
       background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
@@ -111,6 +113,10 @@
     }
     .custom-modal.gallery .popup {
       max-width: var(--width, 80%);
+      border-right:var(--popup-border-width, 5px) var(--popup-border-color, white) solid ;     
+    }
+    .custom-modal.gallery .popup img{
+      box-shadow:var(--popup-img-shadow, 0px 0px 10px #00000066);
     }
 
 
@@ -128,14 +134,14 @@
       position: absolute;
       top:0px;
       right:5px;
-      color: var(--close-color, #aaaaaa);      
+      color: var(--close-color, #dddddd);      
       font-size: 28px;
       font-weight: bold;
     }
 
     .close:hover,
     .close:focus {
-      color: #000;
+      color: var(--close-hover-color, #000);      
       text-decoration: none;
       cursor: pointer;
     }
