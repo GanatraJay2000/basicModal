@@ -99,9 +99,6 @@
                 width: 98%;                
                 padding: 30px;              
             }
-            .close{
-                display: none;
-            }
             .popup_close.close{
                 display: block;
             }
