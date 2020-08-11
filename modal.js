@@ -1,35 +1,43 @@
+//elements
 var body = document.body;
 var buttons = document.querySelectorAll(".open-modal");
 var images = document.querySelectorAll(".open-image");
 
+
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        event.preventDefault();
         var modal_id = "#".concat(button.dataset.modalId);
         var modal = document.querySelector(modal_id);
         var popup = modal.querySelector(".popup");
-        modal.classList.toggle("active");
-        popup.classList.toggle("active");
-        body.classList.toggle("active");
-        var close = document.createElement('span');
+        toggle();
+        var close = document.createElement('button');
         close.classList = "close";
         close.innerHTML = "&times;";
-        popup.insertBefore(close, popup.childNodes[0]);
+        modal.insertBefore(close, modal.childNodes[0]);
+        var popup_close = document.createElement('button');
+        popup_close.classList = "close popup_close";
+        popup_close.innerHTML = "&times;";
+        popup.insertBefore(popup_close, popup.childNodes[0]);
 
         popup.classList.add("has-scrollbar");
-        var span = popup.getElementsByClassName("close")[0];
+        var span = modal.getElementsByClassName("close")[0];
         span.onclick = function () {
-            modal.classList.toggle("active");
-            popup.classList.toggle("active");
-            body.classList.toggle("active");
+            toggle();
+        };
+        var popup_span = popup.getElementsByClassName("close")[0];
+        popup_span.onclick = function () {
+            toggle();
         };
         window.onclick = function (event) {
             if (event.target == modal) {
-                modal.classList.toggle("active");
-                popup.classList.toggle("active");
-                body.classList.toggle("active");
+                toggle();
             }
         };
+        function toggle() {
+            body.classList.toggle('active');
+            modal.classList.toggle('active');
+            popup.classList.toggle('active');
+        }
     });
 });
 
@@ -38,6 +46,7 @@ images.forEach(image => {
     var img = image.firstElementChild;
     var type = img.tagName;
     type = type.toLowerCase();
+
     var modal = document.createElement('div');
     modal.classList = "custom-modal gallery";
 
@@ -64,27 +73,25 @@ images.forEach(image => {
     document.body.appendChild(modal);
     image.addEventListener('click', () => {
         event.preventDefault()
-        modal.classList.toggle("active");
-        popup.classList.toggle("active");
-        body.classList.toggle("active");
-        var close = document.createElement('span');
+        toggle();
+        var close = document.createElement('button');
         close.classList = "close";
         close.innerHTML = "&times;";
-        popup.insertBefore(close, popup.childNodes[0]);
-
+        modal.insertBefore(close, modal.childNodes[0]);
         popup.classList.add("has-scrollbar");
-        var span = popup.getElementsByClassName("close")[0];
+        var span = modal.getElementsByClassName("close")[0];
         span.onclick = function () {
-            modal.classList.toggle("active");
-            popup.classList.toggle("active");
-            body.classList.toggle("active");
+            toggle();
         };
         window.onclick = function (event) {
             if (event.target == modal) {
-                modal.classList.toggle("active");
-                popup.classList.toggle("active");
-                body.classList.toggle("active");
+                toggle();
             }
         };
     });
-});
+    function toggle() {
+        body.classList.toggle('active');
+        modal.classList.toggle('active');
+        popup.classList.toggle('active');
+    }
+});     

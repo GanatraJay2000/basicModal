@@ -1,821 +1,292 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>basicModal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="scrollbar.css" />
-  <link rel="stylesheet" href="modal.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <meta name="keywords" content="basicModal, basic modal, Basic Modal, Modal, modal, HTML, CSS, JavaScript">
-  <meta name="author" content="Jay Ganatra">
-  <meta name="description"
-    content="A basic modal extension ...literally. Create basic modals faster with very less code to be written." />
-  <meta name="google-site-verification" content="X-xRN8fbaowMm2JTX0nG1Q8FLHXrw4pDJVxvsrmbTWk" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700;900&display=swap"
-    rel="stylesheet">
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: #fafafa;
-    }
-
-    .banner {
-      color: white;
-      background: rgb(21, 87, 152);
-      background: linear-gradient(120deg, rgba(21, 87, 152, 1) 0%, rgba(21, 151, 88, 1) 100%);
-      display: grid;
-      place-items: center;
-      height: 50vh;
-      position: relative;
-    }
-
-    .banner-placer {
-      text-align: center;
-    }
-
-    .banner .title {
-      font-family: "Roboto Slab", sans-serif;
-      font-weight: 700;
-      font-size: 100px;
-      transition: 0.5s;
-
-    }
-
-    .banner .sub-title {
-      font-family: "Raleway", sans-serif;
-      font-weight: 400;
-      font-size: 30px;
-    }
-
-    .banner .links {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 10px 40px;
-      text-align: center;
-    }
-
-    .banner .links a {
-      padding: 0 10px;
-      font-size: 30px;
-      color: white;
-      transition: 0.3s;
-    }
-
-    .banner .links a:hover {
-      color: black;
-    }
-
-    .banner .link_to_examples {
-      position: absolute;
-      height: 40px;
-      bottom: -42px;
-      right: 10%;
-      background: rgba(21, 151, 88);
-      background: linear-gradient(120deg, rgba(21, 151, 88, 1) 0%, rgba(21, 87, 152, 1) 100%);
-
-      width: fit-content;
-      padding: 10px 30px;
-      color: white;
-    }
-
-    .content {
-      width: 80%;
-      margin: 40px auto;
-      font-family: "Raleway", sans-serif;
-      position: relative;
-    }
-
-
-
-    .content .heading {
-      font-family: "Raleway", sans-serif;
-      font-weight: 300 !important;
-      font-size: 65px;
-      margin: 50px 0 40px;
-      transition: 0.5s;
-    }
-
-
-
-    .content .title {
-      margin: 20px 0;
-      font-family: "Raleway", sans-serif;
-      font-size: 35px;
-      width: fit-content;
-    }
-
-    .content .title::after {
-      content: "";
-      width: 50px;
-      height: 2px;
-      background-color: currentColor;
-      display: block;
-    }
-
-    .content a {
-      color: rgba(21, 87, 152, 1);
-    }
-
-    .content a.muted {
-      color: #999;
-    }
-
-    .content a:focus,
-    .content a:hover {
-      color: rgba(21, 151, 88, 1);
-    }
-
-    .content .from-where {
-      margin-left: 60px;
-    }
-
-    .content .from-where li {
-      margin: 25px 0;
-    }
-
-    .content .from-where li:first-child {
-      margin-top: 0;
-    }
-
-    .content .from-where a {
-      font-size: 20px;
-    }
-
-    .content .modal-details {
-      line-height: 28px;
-    }
-
-    .details {
-      margin: 15px 0;
-      padding: 20px;
-      border-radius: 5px;
-      background-color: #f1e9e3;
-      color: #333;
-    }
-
-    .presets .flex-row {
-      margin-bottom: 25px;
-    }
-
-    .presets .card {
-      background-color: #fdfdfd;
-      padding: 20px 30px;
-      border-radius: 5px;
-      box-shadow: 1px 2px 7px #00000022;
-    }
-
-    .presets .card h2 {
-      font-weight: 300;
-      margin-bottom: 8px;
-    }
-
-
-    .presets .card pre {
-      line-height: 20px;
-      font-size: 16px;
-      letter-spacing: .6px;
-      color: #444;
-    }
-
-    .flex-row {
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-    }
-
-    .flex-row.reverse {
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row-reverse;
-    }
-
-    .flex-row div {
-      flex-basis: 46%;
-    }
-
-
-
-    .examples .flex-row .details {
-      flex-basis: 70%;
-    }
-
-    .examples .flex-row div {
-      flex-basis: 30%;
-    }
-
-    .examples .flex-row {
-      align-items: center;
-    }
-
-    .examples {
-      padding-top: 30px;
-    }
-
-    .examples .flex-row div {
-      flex-basis: 46%;
-      text-align: center;
-    }
-
-    @media screen and (max-width:500px) {
-      .content .heading {
-        font-size: 40px;
-      }
-
-      .image {
-        width: 100% !important;
-        height: auto;
-        transition: 0.5s;
-      }
-
-
-
-      .content .from-where {
-        margin-left: 5px;
-      }
-    }
-
-
-    @media screen and (max-width:600px) {
-      .banner .title {
-        font-size: 50px;
-      }
-
-      .banner .links {
-        top: auto;
-        bottom: 0;
-        left: 50%;
-        padding: 10px 0;
-        transform: translate(-50%, 0);
-      }
-    }
-
-    @media screen and (max-width:300px) {
-      .content .heading {
-        font-size: 10vw !important;
-      }
-
-      .banner .title {
-        font-size: 15vw;
-      }
-
-      .banner .sub-title {
-        font-size: 10vw;
-      }
-    }
-
-    .alert {
-      text-align: center;
-      color: white;
-      font-size: 20px;
-      border-radius: 5px;
-      padding: 15px 30px;
-      line-height: 29px;
-    }
-
-    .alert.green {
-      background-color: rgba(17, 175, 83, 0.766);
-    }
-
-    .alert.blue {
-      background-color: rgba(47, 109, 172, 0.766);
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .image {
-      height: 250px;
-      width: 250px;
-      transition: 0.5s;
-    }
-
-    .image:hover {
-      filter: brightness(60%) blur(0.9px);
-    }
-
-    .text-left {
-      text-align: left !important;
-    }
-
-    .popup,
-    .popup h1 {
-      color: #666;
-    }
-
-    .open-modal {
-      background: white;
-      color: #444;
-      text-decoration: none;
-      border: 0.5px solid currentColor;
-      padding: 7.5px 30px;
-      transition: 0.5s;
-    }
-
-    .open-modal:hover,
-    .open-modal:focus {
-      background: #444;
-      color: white;
-      border: 0.5px solid currentColor;
-      padding: 7.5px 30px;
-      transition: 0.5s;
-    }
-
-    /* exampless */
-    .custom-modal.custom-style-1 {
-      --width: 30%;
-      --height: 98%;
-      --popup-padding: 30px;
-      --popup-top: 1%;
-      --handlecolor: #fa6d8b;
-      --handlecolorhover: #fc4c72;
-      --close-color: #888;
-      text-align: justify;
-      text-align-last: center;
-    }
-
-    .custom-modal.custom-style-2 {
-      --modal-background: #000000dd;
-      --popup-background-color: rgb(240, 222, 190);
-      --popup-background: var(--plain-bg);
-      --popup-border-color: rgb(240, 222, 190);
-      --width: 30%;
-      --height: 40%;
-      --popup-top: 30%;
-    }
-
-    .custom-modal.custom-style-3 {
-      --modal-background: #000000dd;
-      --popup-border-radius: 5px;
-      --close-color: #eeff00;
-      --close-hover-color: #ff0044;
-      --width: 30%;
-      --height: 40%;
-    }
-
-    .custom-modal.about {
-      --width: 30%;
-      --height: 20%;
-      --popup-top: 35%;
-      --modal-background: #000000cc;
-      --popup-border-radius: 5px;
-    }
-
-    footer {
-      background-color: #ebeae8;
-      width: 100%;
-      padding: 0 100px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 10vh;
-    }
-
-    @media screen and (max-width:1000px) {
-      .flex-row {
-        flex-wrap: wrap;
-        flex-direction: column-reverse;
-      }
-
-      .flex-row.reverse {
-        flex-wrap: wrap;
-        flex-direction: column-reverse;
-      }
-
-      .flex-row div {
-        flex-basis: 100%;
-        margin: 30px 0px;
-      }
-
-      .examples .flex-row .details {
-        flex-basis: 100%;
-      }
-
-      .examples .flex-row div {
-        flex-basis: 100%;
-      }
-    }
-
-    @media screen and (max-width:786px) {
-      section.content {
-        width: 96%;
-        margin: 0 auto;
-      }
-
-      .content ol {
-        margin: 0;
-        padding-left: 0px;
-        list-style: none;
-      }
-
-      .content ul {
-        list-style: none;
-      }
-
-      .banner .link_to_examples {
-        min-height: 40px;
-        height: auto;
-        right: 0%;
-        bottom: -52px;
-      }
-
-
-      .open-modal {
-        margin: 10px 0 0;
-        transition: 0.5s;
-        display: inline-block;
-      }
-
-      footer {
-        padding: 10px;
-        display: block;
-        text-align: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="scrollbar.css">
+    <link rel="icon" href="logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>basicModal</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            transition: 0.5s;
+        }
+
+        body * {
+            font-family: "Raleway", sans-serif;
+            font-weight: 300;
+        }
+
+        .banner {
+            color: white;
+            background: rgb(21, 87, 152);
+            background: linear-gradient(120deg, #155798 0%, #159758 100%);
+            display: grid;
+            place-items: center;
+            min-height: 50vh;
+            position: relative;
+        }
+
+        .title {
+            font-size: 80px;
+            font-weight: 200;
+        }
+
+        .sub-title {
+            font-size: 20px;
+            letter-spacing: 1px;
+            font-weight: 200;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 30px 0;
+        }
+
+        .wrapper {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            transition: 0.5s;
+        }
+
+
+        .open-image {
+            width: 300px;
+            height: 300px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .open-image img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .open-modal {
+            padding: 10px 30px;
+            background: #fff;
+            border: 1px solid;
+            transition: 0.3s;
+        }
+
+        .open-modal:hover,
+        .open-modal:focus {
+            color: white;
+            background-color: #222;
+        }
+
+        .how-to-use {
+            text-align: left;
+            line-height: 30px;
+            font-size: 20px;
+        }
+
+        .example {
+            text-align: left;
+            background-color: #fdf2cf;
+            border-radius: 10px;
+            padding: 1px 30px 30px;
+        }
+
+        footer {
+            background: rgb(21, 87, 152);
+            background: linear-gradient(240deg, rgba(21, 87, 152, 1) 0%, rgba(21, 151, 88, 1) 100%);
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            font-size: 20px;
+            color: white;
+        }
+
+        footer * {
+            color: white;
+        }
+
+        footer div:first-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        footer div:first-child div:nth-child(2) a {
+            padding: 0 5px;
+        }
+
+        @media screen and (max-width:500px) {
+            .banner {
+                min-height: 30vh !important;
+            }
+
+            .banner .title {
+                font-size: 46px;
+                padding: 0 10px;
+            }
+
+            .banner .sub-title {
+                padding: 0 10px;
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <section class="banner">
-    <div class="banner-placer">
-      <div class="title">basicModal</div>
-      <div class="sub-title">A basic Modal extension...literally</div>
-    </div>
-    <div class="links">
-      <a href="https://www.linkedin.com/in/jay-ganatra-559052a7/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-      <a href="https://github.com/GanatraJay2000"><i class="fa fa-github" aria-hidden="true"></i></a>
-    </div>
-    <a href="#examples" class="link_to_examples">Want to see examples first?</a>
-  </section>
-  <section class="content">
-
-    <div class="heading">
-      Documentation
-    </div>
-    <div class="title">
-      Where to find
-    </div>
-    <div class="from-where">
-      <ul>
-        <li>
-          <a href="download_basicModal.zip" download>Direct</a>
-          <div class="details github-details">
-            Download the zip file and use the css and js files in it as per the documentation. Download <a
-              href="download_basicModal.zip" download>here</a>
-          </div>
-        </li>
-        <li>
-          <a href="" class="muted">More option comming soon..</a>
-        </li>
-      </ul>
-    </div>
-    <div class="title">Usage</div>
-    <div class="usage">
-      <ol>
-        <li>Download the files</li>
-        <li>Link the css in the head section
-          <div class="details">
-            <code>
-              &lt;link rel="stylesheet" href="modal.css"><br>
-              &lt;link rel="stylesheet" href="scrollbar.css" />
-            </code>
-          </div>
-        </li>
-        <li>
-          Link th JS at the bottom of body
-          <div class="details">
-            &lt;script src="modal.js"></script>
-          </div>
-        </li>
-        <li>
-          Code this in HTML
-          <div class="flex-row">
-            <div>
-              <p style="text-decoration: underline;margin-bottom:10px;">For HTML Content in Modal</p>
-              <ul>
-                <li>
-                  add link/button to open modal
-                  <div class="details">
-                    &lt;button type="button" class="open-modal" data-modal-id="modal1">Open Modal&lt;/button>
-                  </div>
-                </li>
-                <li>
-                  add the modal. Dont forget this lol!
-                  <div class="details modal-details">
-                    &lt;div class="custom-modal modal" id="modal1"><br>&nbsp;&nbsp;&nbsp;&nbsp;
-                    &lt;div class="popup"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &lt;p>
-                    Lorem ipsum
-                    &lt;/p><br>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    &lt;/div><br>
-                    &lt;/div>
-                  </div>
-                  you can add anything in the modal.
-                </li>
-              </ul>
+    <div class="banner">
+        <div class="">
+            <div class="title">
+                basicModal
             </div>
-            <div>
-              <p style="text-decoration: underline;margin-bottom:10px;">For Image Modal</p>
-              <ul>
-                <li>
-                  add link to open modal
-                  <div class="details modal-details">
-                    &lt;a href="#" class="open-image"><br>&nbsp;&nbsp;&nbsp;&nbsp;
-                    &lt;img class="image" src="image.png" alt=""><br>
-                    &lt;/a>
-                  </div>
-                </li>
-                <li>
-                  No more steps needed for image modal
-                </li>
-              </ul>
+            <div class="sub-title">
+                a basic modal extension ...literally
             </div>
-          </div>
-        </li>
-      </ol>
+        </div>
     </div>
-    <div class="presets">
-      <div class="title">Presets</div>
-      <p>Variables available for changing and their default values</p>
-      <div class="flex-row">
-        <div class="card">
-          <h2>Text Modal</h2>
-          <p>Modal containing HTML content</p><br>
-          <div class="text-left">
-            .custom-modal.modal{<br>
-            --modal-background: #00000066;<br>
-            --width: 60%;<br>
-            --max-height: 80%;<br>
-            --popup-top: 10%;<br>
-            --popup-background-color: white;<br>
-            --popup-background: var(--plain-bg);<br>
-            --popup-border-width: 6.5px;<br>
-            --popup-border-color: white;<br>
-            --popup-border-radius: 5px;<br>
-            --popup-padding: 20px;<br>
-            --popup-overflow: hidden scroll;<br>
-            --popup-shadow: 0px 0px 10px #00000066;<br>
-            --popup-top: 10%;<br>
-            --handlecolor: #fa6d8b;<br>
-            --handlecolorhover: #fc4c72;<br>
-            --close-color: #888;<br>
-            --close-hover-color: #000;<br>
-            }</div>
+    <div class="container">
+        <div class="how-to-use">
+            <h1>How to use</h1>
+            <p>Download the files. <a href="basicModal.zip" class="download" download>Download</a></p>
+            <p>Add the css and js files to your project</p>
+            <p>link css</p>
+            <p>link js</p>
+            <p>You are ready to go &#9996;</p>
+        </div>
+        <div class="demo">
+            <h1 style="font-size: 40px;text-align:left;">Demo</h1>
+            <div class="modal_openers">
+                <h1>Text Modal</h1>
+                <button type="button" class="open-modal" data-modal-id="lorem">Lorem</button>
+                <button type="button" class="open-modal" data-modal-id="ipsum">Ipsum</button>
+            </div>
+            <div class="image_openers">
+                <h1>Image Modals</h1>
+                <div class="wrapper">
+                    <div class="open-image">
+                        <img class="image"
+                            src="https://images.pexels.com/photos/1846268/pexels-photo-1846268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            alt="beach">
+                    </div>
+                    <div class="open-image">
+                        <img class="image"
+                            src="https://images.pexels.com/photos/3876937/pexels-photo-3876937.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                            alt="beach">
+                    </div>
+                    <div class="open-image">
+                        <img class="image"
+                            src="https://images.pexels.com/photos/2734404/pexels-photo-2734404.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            alt="beach">
+                    </div>
+                    <div class="open-image">
+                        <img class="image"
+                            src="https://images.pexels.com/photos/2760856/pexels-photo-2760856.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                            alt="beach">
+                    </div>
+                    <div class="open-image">
+                        <img class="image"
+                            src="https://images.pexels.com/photos/2661176/pexels-photo-2661176.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                            alt="beach">
+                    </div>
 
+                    <div class="open-image">
+                        <img class="image"
+                            src="https://images.pexels.com/photos/2524368/pexels-photo-2524368.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <h2>Image Modal</h2>
-          <p>Modal for Images (useful for galleries)</p><br>
-          <div class="text-left">
-            .custom-modal.gallery{<br>
-            --modal-background: #00000066;<br>
-            --width: 60%;<br>
-            --max-height: 98%;<br>
-            --popup-top: 10%;<br>
-            --popup-background-color: transparent;<br>
-            --popup-background: var(--plain-bg);<br>
-            --popup-border-width: 0px;<br>
-            --popup-border-color: white;<br>
-            --popup-border-radius: 0px;<br>
-            --popup-padding: 0px;<br>
-            --popup-overflow: hidden;<br>
-            --popup-shadow: 0px 0px 0px #00000066;<br>
-            --popup-img-shadow: 0px 0px 0px #00000066;<br>
-            --popup-top: 50%;<br>
-            --close-color: #fff;<br>
-            --close-hover-color: #000;<br>
-            }
-          </div>
-        </div>
-      </div>
-      <p>You can change these values in your custom css on this same class or you can also create a custom class for
-        specific modal and change the variables in its scope.</p>
-    </div>
-    <div id="examples" class="examples">
-      <div class="title">Examples</div>
-      <div class="flex-row">
-        <div class="details">
-          Default for HTML Content
-        </div>
-        <div>
-          <button type="button" class="open-modal" data-modal-id="modal1">Open Modal</button>
-        </div>
-      </div>
-
-      <div class="alert green">For vertically placing the modal, the formula is: value of --height + 2 times
-        --popup-top
-        =
-        100%
-      </div>
-
-      <div class="flex-row reverse">
-        <div class="details text-left">
-          <div class="text-left">
-            #CSS<br>
-            .custom-modal.custom-style-1{<br>
-            --width:30%;<br>
-            --height:98%;<br>
-            --popup-padding:30px;<br>
-            --popup-top:1%;<br>
-            --handlecolor: #fa6d8b;<br>
-            --handlecolorhover: #fc4c72;<br>
-            --close-color: #888;<br>
-            text-align: justify;<br>
-            text-align-last: center; // Makes last line centered<br>
-            }<br>
+        <div class="example">
+            <h1>Example</h1>
+            &lt;!DOCTYPE html><br>
+            &lt;html lang="en"><br>
             <br>
-            #HTML<br>
-            &lt;button type="button" class="open-modal" data-modal-id="modal2">Open Modal&lt;/button><br>
+            &lt;head><br>
+            &lt;meta charset="UTF-8"><br>
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"><br>
+            &lt;title>Modal&lt;/title><br>
+            &lt;link rel="stylesheet" href="modal.css"><br>
+            &lt;link rel="stylesheet" href="scrollbar.css"><br>
+            &lt;/head><br>
             <br>
-            &lt;div class="custom-modal modal custom-style-1" id="modal2"><br>
+            &lt;body><br>
+            &lt;button type="button" class="open-modal" data-modal-id="modal1">Lorem&lt;/button><br>
+            &lt;div class="custom-modal modal" id="modal1"><br>
             &lt;div class="popup"><br>
-            &lt;h2>Some text in the Modal..&lt;/h2><br>
-            &lt;p><br>
-            Lorem ipsum dolor .....<br>
-            &lt;/p><br>
+            &lt;h2>Lorem Ipsum&lt;/h2><br>
+            &lt;p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, labore.&lt;/p><br>
             &lt;/div><br>
             &lt;/div><br>
-            <br>
-            As we are using CSS Variables so we can use regular CSS with it with ease.<br>
-          </div>
+            &lt;script src="modal.js"></script><br>
+            &lt;/body><br>
+
+            &lt;/html><br>
         </div>
-        <div>
-          <button type="button" class="open-modal" data-modal-id="modal2">Open Modal</button>
-        </div>
-      </div>
-
-      <div class="alert blue">If your content is greater than the height of popup you should try<br>
-        --popup-background:var(--shadow-bg); for more interactivity.
-      </div>
-
-      <div class="flex-row ">
-        <div class="details text-left">
-          <div class="text-left">
-            #CSS<br>
-            .custom-modal.custom-style-2{<br>
-            --modal-background: #000000dd;<br>
-            --popup-background-color: rgb(240, 222, 190);<br>
-            --popup-background: var(--plain-bg);<br>
-            --popup-border-color: rgb(240, 222, 190);<br>
-            --width: 30%;<br>
-            --height: 40%;<br>
-            --popup-top: 30%;<br>
-            }<br>
-            <br>
-            #HTML<br>
-            &lt;button type="button" class="open-modal" data-modal-id="modal3">Open Modal&lt;/button><br>
-            <br>
-            &lt;div class="custom-modal modal custom-style-2" id="modal3"><br>
-            &lt;div class="popup"><br>
-            &lt;h2>Some text in the Modal..&lt;/h2><br>
-            &lt;p><br>
-            Lorem ipsum dolor .....<br>
-            &lt;/p><br>
-            &lt;/div><br>
-            &lt;/div><br>
-          </div>
-        </div>
-        <div>
-          <button type="button" class="open-modal" data-modal-id="modal3">Open Modal</button>
-        </div>
-      </div>
-      <div class="alert green">Image modal will go well with image gallery</div>
-
-      <div class="flex-row reverse">
-        <div class="details">
-          Default for Image Modal
-        </div>
-        <div>
-          <a href="#" class="open-image">
-            <img class="image" src="image.jpeg" alt="nice background">
-          </a>
-        </div>
-      </div>
-
-
-
-      <div class="flex-row">
-        <div class="details text-left">
-          <div class="text-left">
-            #CSS<br>
-            .custom-modal.custom-style-3{<br>
-            --modal-background: #000000dd;<br>
-            --popup-border-radius: 5px;<br>
-            --close-color: #eeff00;<br>
-            --close-hover-color: #ff0044;<br>
-            --width: 30%;<br>
-            --height: 40%;<br>
-            }<br>
-            <br>
-            #HTML<br>
-            &lt;a href="#" class="open-image custom-style-3"><br>
-            &lt;img class="image"<br>
-            src="image.jpeg"<br>
-            alt="nice background"><br>
-            &lt;/a><br>
-          </div>
-        </div>
-        <div>
-          <a href="#" class="open-image custom-style-3">
-            <img class="image" src="image.jpeg" alt="nice background">
-          </a>
-        </div>
-      </div>
-
-      <center style="margin:50px 0;">
-        <p>You can do much more with this, much more than what i can think of. If you find an issue please help fix it
-          on
-          Github</p>
-      </center>
-
-
-
     </div>
-  </section>
-  <footer>
-    <div>Photo from <a target='_blank' href="https://www.pexels.com">Pexels</a></div>
-    <div><a href="#" class="open-modal" data-modal-id="jayGanatra">About</a></div>
-  </footer>
-
-  <div class="custom-modal modal about" id="jayGanatra">
-    <div class="popup">
-      <h2>Jay Ganatra</h2>
-      <p>
-        Aspiring Full Stack Developer.<br><br> Follow my work at my <a href="https://github.com/GanatraJay2000">Github
-          Account.</a>
-      </p>
-      <div>
-        Contact me through <a href="mailto:ganatrajay2000@gmail.com">Mail</a>
-      </div><br>
-      <p>Will be continuing my work and create more such programs.&#128513;&#128513;</p>
+    <footer>
+        <div class="">
+            <div class="">Jay Ganatra </div>
+            <div class="">
+                <a target="_blank" href="https://www.linkedin.com/in/jay-ganatra-559052a7/"><i class="fa fa-linkedin"
+                        aria-hidden="true"></i></a>
+                <a target="_blank" href="https://github.com/GanatraJay2000"><i class="fa fa-github"
+                        aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class=""> Images from <a target="_blank" href="https://www.pexels.com/">Pexels</a></div>
+    </footer>
+    <div class="custom-modal modal" id="lorem">
+        <div class="popup">
+            <h1>Lorem</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex suscipit adipisci eos quasi placeat quaerat
+            minima. Nobis vitae excepturi nisi doloribus et alias qui totam praesentium asperiores ab rem,
+            voluptatem
+            debitis atque, deserunt tempora natus voluptatibus! Rerum beatae iure temporibus dolorum voluptatum.
+            Possimus aliquid mollitia facere deleniti ad asperiores unde quia et incidunt maxime. Vitae
+            reprehenderit
+            similique voluptatum laborum animi harum atque molestiae, aliquam reiciendis dolorem pariatur,
+            blanditiis
+            nisi numquam quidem excepturi voluptate laboriosam odit! Minima fugit voluptatem provident ullam esse
+            quod
+            ut praesentium porro in ratione id consectetur asperiores nihil, error accusantium rem excepturi earum
+            repellat illo velit! Quam soluta, expedita tempora ea tempore quisquam error impedit debitis voluptates
+            ducimus hic. Aliquid laboriosam dolorum earum delectus rerum obcaecati ipsum? Eaque, dolorum impedit
+            illum
+            animi quos porro quo hic at adipisci deserunt quam repellendus earum, autem eligendi quis necessitatibus
+            nesciunt eveniet corrupti. Quia, velit voluptatem est iusto, nostrum ut tempora et, tenetur nesciunt
+            possimus rem consectetur! Nobis esse iusto adipisci modi. Incidunt, consequatur? Aut fugiat ipsum
+            repudiandae reprehenderit ratione. Esse, amet excepturi. Quos illum, itaque nihil rerum deserunt ducimus
+            sequi doloribus debitis voluptatibus magnam quo pariatur rem unde adipisci qui. Numquam aperiam ipsa
+            praesentium. Minus optio eaque molestiae ratione laudantium.
+        </div>
     </div>
-  </div>
-  <div class="custom-modal modal" id="modal1">
-    <div class="popup">
-      <h2>Some text in the Modal..</h2>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sint molestiae aut minus. Nesciunt animi
-        corrupti ad, blanditiis, incidunt laboriosam provident tempore repudiandae fuga excepturi reprehenderit
-        recusandae minus sint harum.
-      </p>
+    <div class="custom-modal modal" id="ipsum">
+        <div class="popup">
+            <h1>Ipsum</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, accusamus!</p>
+            <div class="open-image">
+                <img class="image"
+                    src="https://images.pexels.com/photos/1846268/pexels-photo-1846268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="beach">
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="custom-modal modal custom-style-1" id="modal2">
-    <div class="popup">
-      <h2>Some text in the Modal..</h2>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga exercitationem sapiente, placeat, repellendus
-        alias voluptatum libero sit, ratione eius aliquam amet quod ipsa vero! Minus fuga a ad ullam? Dolorem quia quos
-        deleniti? Praesentium alias corporis iure ipsa, a doloribus voluptatem maiores nobis provident dolor! Deserunt
-        excepturi libero saepe, dignissimos natus, praesentium magni quas rem, eligendi illo quod soluta ipsam unde iste
-        pariatur non quaerat explicabo odio quibusdam. Ipsum distinctio facere nobis. Labore reprehenderit velit eaque
-        ad neque odio aliquam est a, enim consequatur, sint et, vitae beatae aut quo dolores laborum dignissimos facilis
-        consequuntur voluptas cum doloremque reiciendis. Placeat vitae, ducimus praesentium error ea minus id delectus,
-        voluptate, omnis in velit tempora voluptatum perspiciatis officiis quasi hic inventore eius repudiandae
-        laboriosam quaerat doloremque! Non earum distinctio explicabo officiis blanditiis necessitatibus minima nam
-        inventore pariatur harum ad, ex aliquam commodi aut autem, sint voluptatem iusto labore! Earum recusandae
-        eveniet voluptas ratione sequi nesciunt itaque non adipisci architecto, qui quaerat sunt rem fugit tenetur
-        veritatis voluptates. Assumenda debitis eos sit doloribus saepe dicta veritatis, ipsum facere. Blanditiis rem
-        exercitationem iste consequatur. Quasi impedit beatae repudiandae quod reprehenderit amet, a aut sint alias
-        accusamus quibusdam temporibus ipsa debitis sequi, laborum recusandae magni qui. Sint, animi consectetur, id
-        magnam ea voluptates doloribus, voluptate cum dicta blanditiis sapiente placeat architecto laboriosam est
-        pariatur deleniti nulla earum repellendus neque porro ipsa. Quas nam est nemo maxime iure, autem maiores odit
-        modi dolores dolorum earum quae ad exercitationem itaque aliquid minus quia eveniet deserunt? Animi, tempora
-        repellat eius iste similique adipisci accusantium, tempore unde, in voluptas debitis ex nobis mollitia totam
-        nesciunt cumque id praesentium repellendus. Ratione necessitatibus hic porro, consequuntur culpa ipsum
-        molestias. Numquam aspernatur praesentium sit porro explicabo! Ad eos sapiente minus nisi labore, corrupti amet?
-        Odit animi, consequatur vero mollitia saepe tempora nesciunt.
-      </p>
-    </div>
-  </div>
-  <div class="custom-modal modal custom-style-2" id="modal3">
-    <div class="popup">
-      <h2>Some text in the Modal..</h2>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sint molestiae aut minus. Nesciunt animi
-        corrupti ad, blanditiis, incidunt laboriosam provident tempore repudiandae fuga excepturi reprehenderit
-        recusandae minus sint harum.
-      </p>
-    </div>
-  </div>
-
-
-  <script src="modal.js"></script>
+    <script src="modal.js"></script>
 </body>
 
 </html>

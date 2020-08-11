@@ -1,181 +1,113 @@
-    .custom-modal.modal{
-      --modal-background: #00000066;
-      --width: 60%;
-      --max-height: 80%;
-      --popup-top: 10%;
-      --popup-background-color: white;
-      --popup-background: var(--plain-bg);
-      --popup-border-width: 6.5px;
-      --popup-border-color: white;
-      --popup-border-radius: 5px;
-      --popup-padding: 20px;
-      --popup-overflow: hidden scroll;
-      --popup-shadow: 0px 0px 10px #00000066;
-      --popup-top: 10%;
-      --handlecolor: #fa6d8b;
-      --handlecolorhover: #fc4c72;
-      --close-color: #888;
-      --close-hover-color: #000;
-    }
-    .custom-modal.gallery{
-     --modal-background: #00000066;
-      --width: 60%;
-      --max-height: 98%;
-      --popup-top: 10%;
-      --popup-background-color: transparent;
-      --popup-background: var(--plain-bg);
-      --popup-border-width: 0px;
-      --popup-border-color: white;
-      --popup-border-radius: 0px;
-      --popup-padding: 0px;
-      --popup-overflow: hidden;
-      --popup-shadow: 0px 0px 0px #00000066;
-      --popup-img-shadow: 0px 0px 0px #00000066;
-      --popup-top: 50%;
-      --close-color: #fff;
-      --close-hover-color: #000;
-    }
-    
-    
-    .custom-modal {
-      --shadow-bg:  linear-gradient(var(--popup-background-color) 30%,
-          rgba(255, 255, 255, 0)),
-        linear-gradient(rgba(255, 255, 255, 0), var(--popup-background-color) 70%) 0 100%,
-        radial-gradient(farthest-side at 50% 5%,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0)),
-        radial-gradient(farthest-side at 50% 95%,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0)) 0 100%;
-      --plain-bg: var(--popup-background-color);
-    }
-    
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
 
-    body.active {
-      overflow-y: hidden;
-    }
-    
-    .custom-modal {
-      display: block;
-      position: fixed;      
-      z-index: 1;      
-      padding-top: 5%;
-      transition: all ease 0.5s;
-      left: 0;
-      top: 0;
-      width: 100%;      
-      height: 100%;      
-      overflow: hidden;      
-      background-color: #ffffff00;
-      opacity: 0;
-      pointer-events: none;
-      user-select: none;
-      cursor:pointer;
-    }
+        body.active {
+            overflow: hidden;
+        }
+             /* Modal */
+        .custom-modal {
+            cursor: pointer;
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            max-width: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            pointer-events: none;
+            transition: 0.5s;
+        }
 
-    .custom-modal.active {
-      opacity: 1;
-      background-color: rgb(0, 0, 0);      
-      background-color: var(--modal-background, #00000066);      
-      pointer-events: all;
-      user-select: auto !important;
-    }
-    
-    .custom-modal .popup {
-      position: fixed;
-      z-index: 2;
-      top: 0%;
-      left: 50%;
-      transform: translate(-50%, 0%);
-      visibility: hidden;
-      opacity: 0;
-      transition: 0.5s;      
-      margin: 0;
-      padding: var(--popup-padding, 20px);
-      max-height: var(--max-height, 80%);
-      overflow: var(--popup-overflow, hidden scroll);             
-      border:var(--popup-border-width, 5px) var(--popup-border-color, white) solid;
-      border-right:0;      
-      border-radius:var(--popup-border-radius, 5px);
-      box-shadow:var(--popup-shadow, 0px 0px 10px #00000066);
-      box-sizing: border-box;
-      background:var(--popup-background, var(--plain-bg));      
-      background-repeat: no-repeat;
-      background-color: var(--popup-background-color);
-      background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
-      background-attachment: local, local, scroll, scroll;
-    }
-    .custom-modal.modal .popup {
-      width: var(--width, 80%);
-    }
-    .custom-modal.gallery .popup {
-      max-width: var(--width, 80%);
-      border-right:var(--popup-border-width, 5px) var(--popup-border-color, white) solid ;     
-    }
-    .custom-modal.gallery .popup img{
-      box-shadow:var(--popup-img-shadow, 0px 0px 10px #00000066);
-      display:block;
-    }
+        .custom-modal.active {
+            opacity: 1;
+            height: 100vh;
+            pointer-events: all;
+        }
 
+        .popup {
+            cursor: default;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            transition: 0.5s;
+            
+        }
+        .popup.active {
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+        }
 
-    .popup.has-scrollbar::-webkit-scrollbar {
-      width: var(--popup-border-width);
-    }
+        .close {
+            font-size: 70px;
+            line-height: 40px;
+            font-weight: 500;
+            padding: 0 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 0;
+            background: transparent;
+            color: #fff;
+            outline: 0;
+            transition: 0.3s;
+            filter: drop-shadow(0px 0px 1px #fff);
+            cursor:pointer;
+        }
+        .popup_close.close{
+            color:#000;
+            font-size: 55px;
+            display:none;
+        }
 
-    .custom-modal .popup.active {
-      top: var(--popup-top ,10%);
-      visibility: visible;
-      opacity: 1;
-      transition: 0.5s;
-    }
-    .close {
-      position: absolute;
-      top:0px;
-      right:5px;
-      color: var(--close-color, #dddddd);      
-      font-size: 28px;
-      font-weight: bold;
-    }
+        .close:hover,
+        .close:focus {            
+            filter: drop-shadow(0px 0px 3px #fff);
+        }
 
-    .close:hover,
-    .close:focus {
-      color: var(--close-hover-color, #000);      
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .custom-modal.gallery .popup{      
-      transform: translate(-50%, -50%);
-    }
-    .modal-img{      
-      /* object-fit:cover; */
-      max-width:100%;
-      max-height:100%;      
-    }
-    .modal-video{      
-      width:100%;      
-      height:100%;
-    }
+        .modal .popup {
+            height: 50%;
+            width: 50%;
+            background-color: #fff;
+            padding: 0 30px;
+            overflow: hidden auto;
+            border-radius:10px;
+            border:5px white solid;
+            border-right:8px white solid;
+        }
+        
+        .gallery .popup img {
+            object-fit: scale-down;
+            max-height: 90vh;
+            max-width: 70vw;
+            border-radius: 0px;
+            box-shadow: 0px 0px 10px #00000077;
+            display: block;
+        }
 
-    @media screen and (max-width: 768px) {
-      .modal .popup {
-        --popup-top:1%;
-        --width:96%;
-        --max-height:98%;        
-        --popup-padding:10px;
-        padding: 5px;
-        text-align: justify;
-        text-align-last:center;
-      }
-      .gallery .popup {
-        --popup-top:50%;
-        --width:98%;
-        --max-height:98%;        
-        --popup-padding:0px;  
-        --popup-border-radius: 0px;      
-        text-align: justify;
-        text-align-last:center;
-      }
-    }
+        @media screen and (max-width:786px) {
+            .gallery .popup img {
+                max-width: 96vw;
+                height: 100vh;
+            }
+            .modal .popup{
+                height: 98%;
+                width: 98%;                
+                padding: 30px;              
+            }
+            .close{
+                display: none;
+            }
+            .popup_close.close{
+                display: block;
+            }
+        }
+        @media screen and (max-width:500px) {
+            .modal .popup{                            
+                padding: 15px 10px;              
+            }
+        }
